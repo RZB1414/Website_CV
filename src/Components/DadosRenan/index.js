@@ -5,21 +5,25 @@ import imgItalia from "../../Img/imgItalia.png"
 
 const Container = styled.div`
   display: flex;
-  min-height: 100vh;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-color: rgba(0, 10, 19, 255);
 `;
 
 const Column = styled.div`
-  width: 33%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    width: 33.3%;
+  }
 `;
 
 const Box = styled.div`
   color: white;
-  width: 90%;
-  max-width: 400px;
+  width: 400;
   margin: 10px;
 `;
 
