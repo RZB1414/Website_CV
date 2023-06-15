@@ -58,11 +58,12 @@ overflow: hidden;
 }
 `
 
-function scrollToBottomSmoothly(duration) {
-
-  const startPosition = window.pageYOffset;
-  const documentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
-  const distance = documentHeight - window.innerHeight - startPosition;
+function scrollToBottomSmoothly() {
+  const screenWidth = window.innerWidth;
+  const duration = screenWidth < 768 ? 1000 : 500;
+  const startPosition = window.scrollY;
+  const maxScrollPosition = 620;
+  const distance = maxScrollPosition - startPosition;
   const startTime = performance.now();
 
   function step(timestamp) {
@@ -70,7 +71,7 @@ function scrollToBottomSmoothly(duration) {
     const scrollY = easeInOutQuad(currentTime, startPosition, distance, duration);
     window.scrollTo(0, scrollY);
 
-    if (currentTime < duration) {
+    if (currentTime < duration && window.scrollY < maxScrollPosition) {
       requestAnimationFrame(step);
     }
   }
@@ -84,6 +85,8 @@ function scrollToBottomSmoothly(duration) {
 
   requestAnimationFrame(step);
 }
+
+
 
 
 function ScrollToBottomButton() {

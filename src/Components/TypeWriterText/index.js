@@ -23,9 +23,13 @@ const IntroContainer = styled.h1`
     background-color: black;
     opacity: 0.7;
     border-radius: 30px;
-    font-size: 40px;
+    font-size: 20px;
     color: white;
     font-family: 'Roboto', sans-serif;
+
+    @media (min-width: 1024px) { 
+        font-size: 40px;
+      }
 `
 
 const TypewriterContainer = styled.h2`
@@ -36,8 +40,12 @@ const TypewriterContainer = styled.h2`
     opacity: 0.7;
     border-radius: 30px;
     color: white;
-    font-size: 40px;
+    font-size: 20px;
     font-family: 'Roboto', sans-serif;
+
+    @media (min-width: 1024px) { 
+        font-size: 40px;
+      }
 
 `
 
